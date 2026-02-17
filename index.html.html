@@ -1,0 +1,1498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATLAS OF SURVEILLANCE | Digital Humanities Project of Simone La Farciola Internationa Relations in Digital Society ROMATRE student </title>
+    <style>
+        /* CSS - DESIGN 1984 CONCEPT */
+        body {
+            background-color: #000;
+            color: #ccc;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* L'OCCHIO REALISTICO (SVG) */
+        .eye-header {
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        svg#big-brother-eye {
+            width: 200px;
+            filter: drop-shadow(0 0 15px rgba(255, 0, 0, 0.7));
+            animation: blink 5s infinite;
+        }
+
+        @keyframes blink {
+            0%, 90%, 100% { transform: scaleY(1); }
+            95% { transform: scaleY(0.1); }
+        }
+
+        h1 {
+            color: #ff0000;
+            font-size: 3.5rem;
+            text-align: center;
+            letter-spacing: 10px;
+            margin-top: 0;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-style: italic;
+            color: #888;
+            margin-bottom: 50px;
+        }
+
+        h2 {
+            color: #ff0000;
+            border-bottom: 1px solid #333;
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            margin-top: 60px;
+        }
+
+        p { margin-bottom: 20px; text-align: justify; }
+
+        .highlight { color: #ff0000; font-weight: bold; }
+
+        a { color: #ff0000; text-decoration: none; border-bottom: 1px dashed #ff0000; }
+        a:hover { background: #ff0000; color: #000; }
+
+        /* BOX PER I GRAFICI TABLEAU */
+        .viz-container {
+            background: #0a0a0a;
+            border: 1px solid #222;
+            padding: 20px;
+            margin: 30px 0;
+            min-height: 500px; /* Spazio per caricamento */
+        }
+
+        /* --- STILE PER IL DOSSIER (MENU A TENDINA) --- */
+        details {
+            margin-top: 40px;
+            border: 1px solid #333;
+            background: #080808;
+            transition: all 0.3s ease;
+        }
+
+        summary {
+            padding: 20px;
+            cursor: pointer;
+            color: #ff0000;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 1.1em;
+            list-style: none; /* Toglie il triangolo standard */
+            outline: none;
+            background-color: #050505;
+            border-bottom: 1px solid #111;
+        }
+
+        /* Hack per nascondere il triangolo su Chrome/Safari */
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary:hover {
+            background-color: #1a1a1a;
+            color: #fff;
+        }
+
+        /* Contenuto che appare quando apri */
+        .analysis-content {
+            padding: 25px;
+            border-top: 1px solid #ff0000; /* Linea rossa quando aperto */
+            animation: fadeIn 0.8s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* INFO/ABOUT SECTION */
+        .about-section {
+            background: #111;
+            padding: 30px;
+            border-top: 3px solid #ff0000;
+            margin-top: 100px;
+            font-size: 0.9rem;
+        }
+
+        ul { list-style: square; padding-left: 20px; }
+        li { margin-bottom: 10px; }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: #444;
+            font-size: 0.8rem;
+        }
+/* --- STILE PER LA GRIGLIA TECNOLOGIE (NUOVO) --- */
+.tech-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 colonne */
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.tech-item {
+    background: #080808;
+    border: 1px solid #222;
+    padding: 15px;
+    transition: border-color 0.3s;
+}
+
+.tech-item:hover {
+    border-color: #ff0000;
+}
+
+.tech-title {
+    color: #ff0000;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.tech-desc {
+    font-size: 0.85rem;
+    color: #aaa;
+    margin: 0;
+}
+
+/* Responsive: 1 colonna su cellulare */
+@media (max-width: 600px) {
+    .tech-grid { grid-template-columns: 1fr; }
+}
+/* --- NUOVO STILE PER L'ALERT BOX (PUNTO FOCALE) --- */
+.alert-box {
+    border: 2px solid #ff0000;
+    background-color: #1a0505; /* Rosso scurissimo */
+    padding: 30px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    position: relative;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+    border-left: 10px solid #ff0000; /* Banda laterale spessa */
+}
+
+.alert-box h3 {
+    color: #ff0000;
+    margin-top: 0;
+    border-bottom: 1px dashed #ff0000;
+    padding-bottom: 15px;
+    letter-spacing: 3px;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+}
+
+.alert-box h3::before {
+    content: "⚠";
+    font-size: 1.5rem;
+    margin-right: 15px;
+}
+
+.alert-text {
+    font-size: 1rem;
+    color: #fff;
+    line-height: 1.8;
+}
+
+/* Stile per la legenda dei colori */
+.legend-item { display: flex; align-items: center; margin-bottom: 10px; }
+.dot { height: 12px; width: 12px; display: inline-block; margin-right: 10px; }
+.dot-blue { background-color: #4e79a7; box-shadow: 0 0 5px #4e79a7; } /* Blu Tableau */
+.dot-red { background-color: #e15759; box-shadow: 0 0 5px #e15759; }  /* Rosso Tableau */
+.dot-black { background-color: #555; border: 1px solid #777; }
+
+/* --- STILE PER LA SEZIONE VENDOR E ALERT (NUOVO) --- */
+
+/* Legenda dei colori */
+.legend-container {
+    background: #111;
+    padding: 20px;
+    border: 1px solid #333;
+    margin-bottom: 30px;
+}
+
+.legend-item { 
+    display: flex; 
+    align-items: center; 
+    margin-bottom: 12px; 
+    font-size: 0.9rem;
+    color: #fff; /* Assicura che il testo sia bianco */
+}
+
+.dot { 
+    height: 12px; 
+    width: 12px; 
+    display: inline-block; 
+    margin-right: 15px; 
+    flex-shrink: 0; 
+}
+
+/* Colori specifici */
+.dot-blue { background-color: #4e79a7; box-shadow: 0 0 5px #4e79a7; } /* Blu - Pubblico */
+.dot-red { background-color: #e15759; box-shadow: 0 0 5px #e15759; }  /* Rosso - Privato */
+.dot-black { background-color: #000000; border: 1px solid #ffffff; }  /* Nero - Non Dichiarato */
+
+/* Box di Allerta (Punto Focale) */
+.alert-box {
+    border: 2px solid #ff0000;
+    background-color: #1a0505; /* Rosso scurissimo */
+    padding: 30px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    position: relative;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
+    border-left: 10px solid #ff0000; 
+}
+
+.alert-box h3 {
+    color: #ff0000;
+    margin-top: 0;
+    border-bottom: 1px dashed #ff0000;
+    padding-bottom: 15px;
+    letter-spacing: 3px;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+}
+
+.alert-box h3::before {
+    content: "⚠"; 
+    font-size: 1.5rem;
+    margin-right: 15px;
+}
+
+.alert-text {
+    font-size: 1rem;
+    color: #fff;
+    line-height: 1.8;
+    text-align: justify; /* Testo giustificato per ordine */
+}
+/* --- STILE PER LA SEZIONE FINALE (VERDETTO) --- */
+
+/* Griglia per i numeri chiave */
+.stat-breakdown {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.stat-card {
+    background: #111;
+    border: 1px solid #333;
+    padding: 20px;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: #aaa;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Colori per i numeri */
+.num-red { color: #e15759; text-shadow: 0 0 10px rgba(225, 87, 89, 0.3); }
+.num-black { color: #fff; border-bottom: 2px solid #fff; display: inline-block; } /* Bianco per contrasto su sfondo nero */
+.num-blue { color: #4e79a7; }
+
+/* Contenitori di Analisi (SaaS e Rischi) */
+.analysis-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Mobile first */
+    gap: 30px;
+    margin-top: 50px;
+}
+
+@media (min-width: 768px) {
+    .analysis-grid { grid-template-columns: 1fr 1fr; }
+}
+
+.analysis-col h3 {
+    border-bottom: 1px solid #444;
+    padding-bottom: 10px;
+    color: #fff;
+    font-size: 1.3rem;
+}
+
+.analysis-item {
+    margin-bottom: 20px;
+    border-left: 3px solid #333;
+    padding-left: 15px;
+}
+
+.analysis-item strong { color: #e15759; }
+
+/* SCENARI FUTURI (Warning Cards) */
+.future-scenarios {
+    margin-top: 60px;
+    background-color: #0a0a0a;
+    border: 1px solid #333;
+    padding: 30px;
+}
+
+.future-title {
+    color: #e15759;
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.scenario-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.scenario-card {
+    background: #1a0505; /* Rosso scurissimo */
+    border: 1px solid #500;
+    padding: 20px;
+}
+
+.scenario-card h4 { color: #fff; margin-top: 0; }
+
+/* CONCLUSIONE DELLA TESI */
+.thesis-conclusion {
+    margin-top: 80px;
+    padding: 40px;
+    border: 4px solid #fff;
+    background: #000;
+    text-align: center;
+    position: relative;
+}
+
+.thesis-conclusion::before {
+    content: "FINAL VERDICT";
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #000;
+    padding
+
+/* --- ABOUT SECTION / INFO PAGE STYLING --- */
+#about-project {
+    background-color: #0f0f0f; /* Dark background */
+    border-top: 4px solid #333; /* Top separator */
+    padding: 60px 20px;
+    margin-top: 100px;
+    font-family: 'Courier New', Courier, monospace; /* Typewriter style */
+    color: #ccc;
+    line-height: 1.6;
+}
+
+#about-project h2 {
+    color: #fff;
+    border-bottom: 1px solid #555;
+    padding-bottom: 20px;
+    margin-bottom: 40px;
+    letter-spacing: 4px;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+}
+
+/* 2 Columns on larger screens */
+@media (min-width: 900px) {
+    .about-grid { grid-template-columns: 1fr 1fr; }
+}
+
+.about-block {
+    margin-bottom: 20px;
+}
+
+.about-block h3 {
+    color: #4e79a7; /* Blue for section titles */
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    border-left: 3px solid #4e79a7;
+    padding-left: 10px;
+    letter-spacing: 1px;
+}
+
+/* Special styling for the Challenge/Data section */
+.challenge-section {
+    grid-column: 1 / -1; /* Spans full width */
+    background: #151515;
+    border: 1px dashed #555;
+    padding: 30px;
+    margin: 20px 0;
+}
+
+.challenge-section h3 {
+    color: #e15759; /* Red for alerts/challenges */
+    border-left-color: #e15759;
+}
+
+.challenge-highlight {
+    color: #fff;
+    font-weight: bold;
+    background: rgba(225, 87, 89, 0.2); /* Faint red background */
+    padding: 2px 6px;
+    border-radius: 2px;
+}
+
+/* Custom Lists */
+.tech-list, .credit-list {
+    list-style: none;
+    padding: 0;
+}
+
+.tech-list li, .credit-list li {
+    margin-bottom: 15px;
+    padding-left: 25px;
+    position: relative;
+}
+
+.tech-list li::before {
+    content: ">>"; /* Terminal arrow */
+    color: #4e79a7;
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+
+.credit-list li::before {
+    content: "+"; /* Plus sign */
+    color: #fff;
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+.credit-name {
+    color: #fff;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 3px;
+}
+    </style>
+
+</head>
+<body>
+
+    <div class="container">
+
+        <header class="eye-header">
+            <svg id="big-brother-eye" viewBox="0 0 120 120">
+                <path d="M10,60 C10,60 30,20 60,20 C90,20 110,60 110,60 C110,60 90,100 60,100 C30,100 10,60 10,60 Z" fill="none" stroke="#ff0000" stroke-width="2"/>
+                <circle cx="60" cy="60" r="25" fill="#111" stroke="#ff0000" stroke-width="1"/>
+                <circle cx="60" cy="60" r="12" fill="#ff0000">
+                    <animate attributeName="r" values="10;13;10" dur="3s" repeatCount="indefinite" />
+                </circle>
+            </svg>
+            <h1>ATLAS OF SURVEILLANCE</h1>
+            <p class="subtitle">Digital Humanities Final Project | Simone La Farciola International Relations - Digital Society ROMATRE Academic Year 2025-2026 e-mail contact: sim.lafarciola@stud.uniroma3.it </p>
+        </header>
+
+        <section id="introduction">
+            <h2>The Watchtower: OSINT & Data</h2>
+            <p>
+                The data contained in the <strong>Atlas of Surveillance</strong> is open-source intelligence, or <span class="highlight">OSINT</span>. 
+                This is a term used to describe gathering information that already exists online—from news stories, social media posts, 
+                press releases, or documents buried in government websites, often turned up through using advanced search engine techniques.
+                The dataset is a comprehensive archive that documents the adoption of surveillance technologies by thousands of municipal, county, and state law enforcement agencies. 
+                Each "case" in the dataset records a specific instance of a technology being purchased, implemented, or used by a government agency.
+            </p>
+            <p>
+                In an era of digital panopticon, this project aims to reverse the gaze. If the authorities monitor the citizens, 
+                OSINT allows citizens to monitor the watchers. 
+                The Atlas of Surveillance data was last updated on <span class="highlight">December 4, 2025</span>.
+            </p>
+            <p>
+                Source: 
+                <a href="https://www.atlasofsurveillance.org/search?location=&commit=Search+the+Data" target="_blank">
+                    Electronic Frontier Foundation and the Reynolds School of Journalism.
+                </a>
+            </p>
+        </section>
+
+        <section id="objectives">
+            <h2>Mission Objectives</h2>
+            <p>
+                This investigation aims to dissect the American surveillance apparatus by identifying the private companies 
+                driving this expansion. The analysis focuses on three pillars:
+            </p>
+            <ul>
+                <li><span class="highlight">Technological Proliferation:</span> Identifying which specific tools (Drones, Facial Recognition, Bodycams) are dominating the market.</li>
+                <li><span class="highlight">Territorial Distribution:</span> Mapping the density of surveillance to find the most "watched" states in the Union.</li>
+                <li><span class="highlight">The Privatization of Control:</span> Discussing the shift from public security to private corporate profit.</li>
+            </ul>
+        </section>
+
+        <section id="map-viz">
+            <h2>1. Geospatial Density: WHICH USA STATES USE MOST SURVEILLANCE TECHNOLOGY?</h2>
+            
+            <p>
+                The following <span class="highlight">Choropleth Map</span> visualizes the concentration of surveillance technologies across the United States. 
+                The red color gradient, represents the density of security apparatuses deployed per state.
+            </p>
+
+            <div class='tableauPlaceholder' id='viz1771241209057' style='position: relative; margin: 30px 0;'>
+                <noscript><a href='#'><img alt='Surveillance in States ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;DH&#47;DHPROJECTATLASSURVEILLANCE&#47;SurveillanceinStates&#47;1_rss.png' style='border: none' /></a></noscript>
+                <object class='tableauViz'  style='display:none;'>
+                    <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
+                    <param name='embed_code_version' value='3' /> 
+                    <param name='site_root' value='' />
+                    <param name='name' value='DHPROJECTATLASSURVEILLANCE&#47;SurveillanceinStates' />
+                    <param name='tabs' value='no' />
+                    <param name='toolbar' value='yes' />
+                    <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;DH&#47;DHPROJECTATLASSURVEILLANCE&#47;SurveillanceinStates&#47;1.png' /> 
+                    <param name='animate_transition' value='yes' />
+                    <param name='display_static_image' value='yes' />
+                    <param name='display_spinner' value='yes' />
+                    <param name='display_overlay' value='yes' />
+                    <param name='display_count' value='yes' />
+                    <param name='language' value='it-IT' />
+                </object>
+            </div>
+            <script type='text/javascript'>
+                var divElement = document.getElementById('viz1771241209057');
+                var vizElement = divElement.getElementsByTagName('object')[0];
+                vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
+                var scriptElement = document.createElement('script');
+                scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+                vizElement.parentNode.insertBefore(scriptElement, vizElement);
+            </script>
+            <div style="margin-top: 40px;">
+                <h3 style="color: #fff;">Quantitative Ranking</h3>
+                <p>The top 10 states by technological density are:</p>
+                <ol style="columns: 2; color: #ff0000; font-weight: bold; margin-bottom: 40px;">
+                    <li>California</li>
+                    <li>New Jersey</li>
+                    <li>Florida</li>
+                    <li>Texas</li>
+                    <li>Illinois</li>
+                    <li>Ohio</li>
+                    <li>Michigan</li>
+                    <li>Tennessee</li>
+                    <li>Massachusetts</li>
+                    <li>Pennsylvania</li>
+                </ol>
+
+                <details>
+                    <summary>▼ ACCESS CRITICAL ANALYSIS (CLICK TO DECLASSIFY)</summary>
+                    
+                    <div class="analysis-content">
+                        
+                        <div style="margin-bottom: 30px;">
+                            <strong style="color: #fff; font-size: 1.1em;">[A] THE SECURITY PARADOX</strong>
+                            <p style="margin-top: 10px; font-size: 0.95em; text-align: justify;">
+                                Data reveals a disconnect between actual danger and monitoring density.
+                                <br><br>
+                                <span class="highlight">The Safe yet Watched:</span>
+                                <strong>New Jersey</strong> (#2) and <strong>Massachusetts</strong> (#9) rank among the safest states in the nation for violent crime, yet they possess two of the densest surveillance grids in existence.
+                                <br><br>
+                                <span class="highlight">The Dangerous yet Unwatched:</span>
+                                Conversely, states with historically highest violent crime rates per capita (such as <strong>Louisiana</strong>, <strong>New Mexico</strong>, or <strong>Alaska</strong>) are notably absent from the top tech-adoption list. Even <strong>Tennessee</strong> (#8), despite its higher crime challenges, ranks lower in tech adoption than the wealthy, safer suburbs of the Northeast.
+                                <br><br>
+                                <em>Conclusion:</em> Surveillance is a luxury commodity. The "Digital Eye" follows <span class="highlight">institutional wealth</span> and municipal budget surpluses, not criminal activity.
+                            </p>
+                        </div>
+
+                        <div style="margin-bottom: 30px;">
+                            <strong style="color: #fff; font-size: 1.1em;">[B] BIPARTISAN CONSENSUS</strong>
+                            <p style="margin-top: 5px; font-size: 0.95em; text-align: justify;">
+                                The digital eye is ideologically neutral. High surveillance density appears in both historically Democratic "Blue" states (California, Illinois) and Republican "Red" states (Texas, Florida).
+                                <br><br>
+                                Whether the political justification is police "reform" and accountability, or strict "law & order" enforcement, the result is identical: <span class="highlight">Total Coverage</span>. The expansion of the surveillance state is a bipartisan phenomenon that transcends the political divide.
+                            </p>
+                        </div>
+
+                      
+                       
+
+                    </div>
+                </details>
+                </div>
+        </section>
+<section id="tech-viz" style="margin-top: 80px;">
+    <h2>2. Technological Arsenal: THE TOOLS OF CONTROL</h2>
+    
+    <p>
+        To understand the nature of modern surveillance, one must classify the tools employed. 
+        The following data breaks down the most frequently acquired technologies by U.S. law enforcement agencies.
+    </p>
+
+    <div class="viz-container">
+        
+        <div class='tableauPlaceholder' id='viz1771252020282' style='position: relative'>
+            <noscript>
+                <a href='#'>
+                    <img alt='Distribution ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;DH&#47;DHPROJECTATLASSURVEILLANCE&#47;Distribution&#47;1_rss.png' style='border: none' />
+                </a>
+            </noscript>
+            <object class='tableauViz' style='display:none;'>
+                <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                <param name='embed_code_version' value='3' />
+                <param name='site_root' value='' />
+                <param name='name' value='DHPROJECTATLASSURVEILLANCE&#47;Distribution' />
+                <param name='tabs' value='no' />
+                <param name='toolbar' value='yes' />
+                <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;DH&#47;DHPROJECTATLASSURVEILLANCE&#47;Distribution&#47;1.png' />
+                <param name='animate_transition' value='yes' />
+                <param name='display_static_image' value='yes' />
+                <param name='display_spinner' value='yes' />
+                <param name='display_overlay' value='yes' />
+                <param name='display_count' value='yes' />
+                <param name='language' value='it-IT' />
+            </object>
+        </div>
+        
+        <script type='text/javascript'>
+            var divElement = document.getElementById('viz1771252020282');
+            var vizElement = divElement.getElementsByTagName('object')[0];
+            vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
+            var scriptElement = document.createElement('script');
+            scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+            vizElement.parentNode.insertBefore(scriptElement, vizElement);
+        </script>
+
+    </div>
+
+    <p style="margin-top: 20px;">The surveillance ecosystem is composed of 12 primary technological pillars. Access the database below for details:</p>
+
+    <details>
+        <summary>▼ INSPECT TECHNOLOGICAL DATABASE (12 ITEMS)</summary>
+        
+        <div class="analysis-content">
+            <div class="tech-grid">
+                
+                <div class="tech-item">
+                    <span class="tech-title">01. Body-worn Cameras</span>
+                    <p class="tech-desc">Mobile audio-video recording systems worn on an officer's uniform. Originally intended for police accountability, they also function as mobile surveillance units.</p>
+                </div>
+
+                <div class="tech-item">
+                    <span class="tech-title">02. Automated License Plate Readers (ALPR)</span>
+                    <p class="tech-desc">High-speed camera systems, mounted on street poles or police cars, that automatically capture license plates and location data, creating a map of citizen movement.</p>
+                </div>
+
+                <div class="tech-item">
+                    <span class="tech-title">03. Drones (UAVs)</span>
+                    <p class="tech-desc">Unmanned aerial vehicles equipped with high-resolution cameras, thermal imaging, and sometimes facial recognition capabilities for aerial monitoring.</p>
+                </div>
+
+                <div class="tech-item">
+                    <span class="tech-title">04. Third-party Investigative Platforms</span>
+                    <p class="tech-desc">Subscriptions to private databases (e.g., data brokers) that aggregate consumer data, social media, and public records for law enforcement mining.</p>
+                </div>
+
+                <div class="tech-item">
+                    <span class="tech-title">05. Face Recognition</span>
+                    <p class="tech-desc">Biometric software that maps facial features from a photo or video and matches them against massive databases (like DMV records or mugshots) to identify individuals.</p>
+                </div>
+
+                <div class="tech-item">
+                    <span class="tech-title">06. Camera Registry</span>
+                    <p class="tech-desc">Programs (like "Operation Shield") that map the locations of private home and business security cameras, allowing police to quickly request footage.</p>
+                </div>
+
+                <div class="tech-item">
+                    <span class="tech-title">07. Gunshot Detection</span>
+                    <p class="tech-desc">Networks of acoustic sensors (e.g., ShotSpotter) placed in neighborhoods to detect and triangulate the sound of gunfire, alerting police dispatch instantly.</p>
+                </div>
+
+                <div class="tech-item">
+                    <span class="tech-title">08. Real-Time Crime Center (RTCC)</span>
+                    <p class="tech-desc">Centralized command hubs that integrate data streams from cameras, ALPRs, and calls for service to provide live intelligence to officers in the field.</p>
+                </div>
+
+                <div class="tech-item">
+                    <span class="tech-title">09. Predictive Policing</span>
+                    <p class="tech-desc">Algorithmic software that uses historical crime data to forecast where future crimes are likely to occur or who might commit them, directing patrol resources.</p>
+                </div>
+
+                <div class="tech-item">
+                    <span class="tech-title">10. Cell-site Simulator</span>
+                    <p class="tech-desc">Devices (often called "Stingrays") that mimic cell towers, tricking nearby phones into connecting to them to intercept location data and communications.</p>
+                </div>
+
+                <div class="tech-item">
+                    <span class="tech-title">11. Video Analytics</span>
+                    <p class="tech-desc">AI-driven software layered over video feeds to automatically detect "anomalies," recognize objects, or track specific individuals across multiple cameras.</p>
+                </div>
+
+                <div class="tech-item">
+                    <span class="tech-title">12. Fusion Center</span>
+                    <p class="tech-desc">State-owned information centers that serve as focal points for sharing threat-related information between federal (FBI/DHS) and local agencies.</p>
+                </div>
+
+            </div>
+        </div>
+    </details>
+</section>
+
+<section id="tech-distribution" style="margin-top: 80px;">
+    <h2>3. Distribution of Technology per States</h2>
+    
+    <p>
+        This interactive chart, titled <strong>"Distribution of Technology per States"</strong>, provides a comparative visualization of the geographic spread of various surveillance tools across the United States.
+        Below is a brief explanation of its features and analytical scope:
+    </p>
+
+    <ul style="margin-bottom: 30px; line-height: 1.6;">
+        <li style="margin-bottom: 15px;">
+            <strong style="color: #ff0000;">[ MULTIPLE MAPS ]</strong><br>
+            The chart splits the data into distinct side-by-side maps, each dedicated to a specific technology (e.g., Body-worn Cameras, Drones, Face Recognition). This allows for an instant comparison of which technologies are more prevalent in certain states compared to others.
+        </li>
+        <li>
+            <strong style="color: #ff0000;">[ TECHNOLOGICAL FILTER ]</strong><br>
+            A control panel on the right allows for the selection or deselection of specific technologies. This enables the user to isolate specific tools—such as private sensors (like drones) or public command infrastructures (like Fusion Centers)—to analyze their specific distribution patterns.
+        </li>
+    </ul>
+
+    <div class="viz-container">
+        
+        <div class='tableauPlaceholder' id='viz1771282113118' style='position: relative'>
+            <noscript>
+                <a href='#'>
+                    <img alt='Technology per country ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;DH&#47;DHPROJECTATLASSURVEILLANCE&#47;Technologypercountry&#47;1_rss.png' style='border: none' />
+                </a>
+            </noscript>
+            <object class='tableauViz' style='display:none;'>
+                <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
+                <param name='embed_code_version' value='3' /> 
+                <param name='site_root' value='' />
+                <param name='name' value='DHPROJECTATLASSURVEILLANCE&#47;Technologypercountry' />
+                <param name='tabs' value='no' />
+                <param name='toolbar' value='yes' />
+                <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;DH&#47;DHPROJECTATLASSURVEILLANCE&#47;Technologypercountry&#47;1.png' /> 
+                <param name='animate_transition' value='yes' />
+                <param name='display_static_image' value='yes' />
+                <param name='display_spinner' value='yes' />
+                <param name='display_overlay' value='yes' />
+                <param name='display_count' value='yes' />
+                <param name='language' value='it-IT' />
+            </object>
+        </div>
+        
+        <script type='text/javascript'>
+            var divElement = document.getElementById('viz1771282113118');
+            var vizElement = divElement.getElementsByTagName('object')[0];
+            vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
+            var scriptElement = document.createElement('script');
+            scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+            vizElement.parentNode.insertBefore(scriptElement, vizElement);
+        </script>
+
+    </div>
+
+</section>
+
+<section id="dystopian-state" style="margin-top: 80px; margin-bottom: 100px;">
+    <h2>4. Dystopian State: THE RATIO OF INTRUSION</h2>
+    
+    <p>
+        Not all surveillance is created equal. This section analyzes the <strong>quality</strong> of the technology deployed, rather than just the quantity.
+        We define a "Dystopian State" not merely by how much it watches, but by <em>how</em> it watches.
+    </p>
+
+    <p>
+        The chart below visualizes the ratio between states that rely on standard, visible hardware versus those that invest heavily in invisible, invasive, or predictive technologies.
+    </p>
+
+    <div style="background: #080808; border: 1px solid #333; padding: 20px; margin: 20px 0; display: flex; flex-wrap: wrap; gap: 30px;">
+        
+        <div style="flex: 1; min-width: 250px;">
+            <h3 style="color: #ff0000; border-bottom: 1px solid #ff0000; padding-bottom: 5px; margin-top: 0;">⚠ HIGH RISK / INVASIVE</h3>
+            <p style="font-size: 0.85rem; color: #aaa; margin-bottom: 15px;">
+                Technologies that actively spy, predict behavior, or aggregate data often without public knowledge. These represent the "Dystopian" shift in policing.
+            </p>
+            <ul style="color: #ccc; font-size: 0.9rem; list-style-type: square; line-height: 1.6;">
+                <li>Drones (UAVs)</li>
+                <li>Facial Recognition</li>
+                <li>Cell-site Simulators (Stingrays)</li>
+                <li>Predictive Policing (PredPol)</li>
+                <li>Fusion Centers</li>
+                <li>Real-Time Crime Centers (RTCC)</li>
+                <li>Third-Party Data Brokers</li>
+                <li>Gunshot Detection</li>
+            </ul>
+        </div>
+
+        <div style="flex: 1; min-width: 250px;">
+            <h3 style="color: #444; border-bottom: 1px solid #444; padding-bottom: 5px; margin-top: 0;">◉ COMMON USE / STANDARD</h3>
+            <p style="font-size: 0.85rem; color: #aaa; margin-bottom: 15px;">
+                Tools that are now considered standard equipment for modern law enforcement, often cited for accountability or basic monitoring.
+            </p>
+            <ul style="color: #888; font-size: 0.9rem; list-style-type: disc; line-height: 1.6;">
+                <li>Body-worn Cameras</li>
+                <li>Automated License Plate Readers (ALPR)</li>
+                <li>Camera Registry</li>
+                <li>Video Analytics</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="viz-container" style="margin-bottom: 40px;">
+        <div class='tableauPlaceholder' id='viz1771285389326' style='position: relative'>
+            <noscript>
+                <a href='#'>
+                    <img alt='&lt;HIGH RISK VS. COMMON USE&gt; ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;DH&#47;DHPROJECTATLASSURVEILLANCE&#47;DystopicStates&#47;1_rss.png' style='border: none' />
+                </a>
+            </noscript>
+            <object class='tableauViz' style='display:none;'>
+                <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
+                <param name='embed_code_version' value='3' /> 
+                <param name='site_root' value='' />
+                <param name='name' value='DHPROJECTATLASSURVEILLANCE&#47;DystopicStates' />
+                <param name='tabs' value='no' />
+                <param name='toolbar' value='yes' />
+                <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;DH&#47;DHPROJECTATLASSURVEILLANCE&#47;DystopicStates&#47;1.png' /> 
+                <param name='animate_transition' value='yes' />
+                <param name='display_static_image' value='yes' />
+                <param name='display_spinner' value='yes' />
+                <param name='display_overlay' value='yes' />
+                <param name='display_count' value='yes' />
+                <param name='language' value='it-IT' />
+            </object>
+        </div>
+        
+        <script type='text/javascript'>
+            var divElement = document.getElementById('viz1771285389326');
+            var vizElement = divElement.getElementsByTagName('object')[0];
+            vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
+            var scriptElement = document.createElement('script');
+            scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+            vizElement.parentNode.insertBefore(scriptElement, vizElement);
+        </script>
+    </div>
+
+    <div style="margin-top: 40px; border-left: 3px solid #ff0000; padding-left: 25px;">
+        <h3 style="color: #fff; margin-top: 0; text-transform: uppercase; letter-spacing: 1px;">The Dystopian Index: Top 3 Ranked States</h3>
+        
+        <p style="margin-bottom: 25px; color: #ddd;">
+            By weighting the data towards "High Risk" technologies (tools that identify, track, or predict) over "Common Use" tools, the following states emerge as the most heavily surveyed environments:
+        </p>
+
+        <ol style="color: #ccc; line-height: 1.8; font-family: 'Courier New', Courier, monospace;">
+            
+            <li style="margin-bottom: 25px;">
+                <strong style="color: #ff0000; font-size: 1.3em;">MICHIGAN</strong>
+                <br>
+                <span style="font-size: 0.95em; color: #bbb; display: block; margin-top: 5px;">
+                    <strong>Why it is #1:</strong> Michigan holds the top spot due to an aggressive integration of <em>Facial Recognition</em> and <em>Fusion Centers</em>. The state is a testing ground for real-time surveillance networks (such as Detroit's "Project Green Light") where private video feeds are directly linked to police command, creating a state of constant, active monitoring.
+                </span>
+            </li>
+
+            <li style="margin-bottom: 25px;">
+                <strong style="color: #ff0000; font-size: 1.3em;">FLORIDA</strong>
+                <br>
+                <span style="font-size: 0.95em; color: #bbb; display: block; margin-top: 5px;">
+                    <strong>Why it is #2:</strong> Florida ranks second driven by its heavy reliance on <em>Predictive Policing</em> algorithms and massive <em>ALPR</em> (License Plate Reader) dragnets. The state's approach prioritizes data-driven "pre-crime" methodologies, tracking citizen movement patterns more intensively than almost anywhere else.
+                </span>
+            </li>
+
+            <li style="margin-bottom: 25px;">
+                <strong style="color: #ff0000; font-size: 1.3em;">CALIFORNIA</strong>
+                <br>
+                <span style="font-size: 0.95em; color: #bbb; display: block; margin-top: 5px;">
+                    <strong>Why it is #3:</strong> While California has high "common" usage, its third-place ranking is cemented by the sheer volume of <em>Drones</em> and <em>Cell-site Simulators</em> (Stingrays). The density of military-grade spy gear in its metropolitan hubs outweighs its privacy regulations, creating a paradox of high regulation but higher intrusion.
+                </span>
+            </li>
+
+        </ol>
+    </div>
+
+</section>
+
+<section id="michigan-case" style="margin-top: 80px; margin-bottom: 100px;">
+    
+    <h2>5. Facial Recognition: The Michigan Case</h2>
+    
+    <div class="viz-container" style="margin-bottom: 40px;">
+        <div class='tableauPlaceholder' id='viz1771286140930' style='position: relative'>
+            <noscript>
+                <a href='#'>
+                    <img alt='Face Recognition  ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;F3&#47;F3RSKTGRS&#47;1_rss.png' style='border: none' />
+                </a>
+            </noscript>
+            <object class='tableauViz' style='display:none;'>
+                <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
+                <param name='embed_code_version' value='3' /> 
+                <param name='path' value='shared&#47;F3RSKTGRS' /> 
+                <param name='toolbar' value='yes' />
+                <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;F3&#47;F3RSKTGRS&#47;1.png' /> 
+                <param name='animate_transition' value='yes' />
+                <param name='display_static_image' value='yes' />
+                <param name='display_spinner' value='yes' />
+                <param name='display_overlay' value='yes' />
+                <param name='display_count' value='yes' />
+                <param name='language' value='it-IT' />
+            </object>
+        </div>
+        
+        <script type='text/javascript'>
+            var divElement = document.getElementById('viz1771286140930');
+            var vizElement = divElement.getElementsByTagName('object')[0];
+            vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
+            var scriptElement = document.createElement('script');
+            scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+            vizElement.parentNode.insertBefore(scriptElement, vizElement);
+        </script>
+    </div>
+
+    <div style="margin-top: 30px;">
+        <p>
+            The map above highlights why Michigan stands as the global "Ground Zero" for the normalization of biometric surveillance. 
+            Here, the technology has transcended law enforcement to become a gatekeeper of public life. 
+            It is no longer just about catching criminals; it is about indexing the population.
+        </p>
+
+        <div style="border-left: 3px solid #ff0000; padding-left: 20px; margin-top: 20px; color: #ccc;">
+            <p style="margin-bottom: 15px;">
+                <strong style="color: #fff;">THE "ALWAYS-ON" WATCH:</strong>
+            </p>
+            <ul style="line-height: 1.8; font-family: 'Courier New', Courier, monospace;">
+                <li style="margin-bottom: 15px;">
+                    <strong style="color: #ff0000;">STADIUMS AS LABS:</strong><br> 
+                    Sports venues are piloting systems where your face replaces your ticket. Access to public entertainment now requires surrendering your biometric data.
+                </li>
+                <li style="margin-bottom: 15px;">
+                    <strong style="color: #ff0000;">RETAIL SURVEILLANCE:</strong><br> 
+                    Shopping malls and centers have integrated facial recognition to scan every customer entering the premises, cross-referencing them against private "watchlists" without their consent.
+                </li>
+                <li style="margin-bottom: 15px;">
+                    <strong style="color: #ff0000;">INDEXING THE INNOCENT:</strong><br> 
+                    Perhaps most disturbingly, the system catalogs mere passersby. Every face captured by the street-level sensors is indexed, effectively creating a database where anonymity in public spaces is mathematically impossible.
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</section>
+
+<section id="vendors" style="margin-top: 80px; margin-bottom: 100px;">
+    <h2>6. Who are the Vendors?</h2>
+    
+    <p>
+        The landscape of surveillance is not just about the police; it is about the private entities supplying the tools.
+        The bar chart below ranks vendors by the frequency of their contracts with law enforcement and intelligence agencies, revealing a market structure dominated by massive undisclosed contracts and a few key private monopolies.
+    </p>
+
+    <div class="viz-container" style="margin-bottom: 30px;">
+        <div class='tableauPlaceholder' id='viz1771286781362' style='position: relative'>
+            <noscript>
+                <a href='#'>
+                    <img alt='Vendors  ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;DH&#47;DHPROJECTATLASSURVEILLANCE&#47;Vendors&#47;1_rss.png' style='border: none' />
+                </a>
+            </noscript>
+            <object class='tableauViz' style='display:none;'>
+                <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
+                <param name='embed_code_version' value='3' /> 
+                <param name='site_root' value='' />
+                <param name='name' value='DHPROJECTATLASSURVEILLANCE&#47;Vendors' />
+                <param name='tabs' value='no' />
+                <param name='toolbar' value='yes' />
+                <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;DH&#47;DHPROJECTATLASSURVEILLANCE&#47;Vendors&#47;1.png' /> 
+                <param name='animate_transition' value='yes' />
+                <param name='display_static_image' value='yes' />
+                <param name='display_spinner' value='yes' />
+                <param name='display_overlay' value='yes' />
+                <param name='display_count' value='yes' />
+                <param name='language' value='it-IT' />
+            </object>
+        </div>
+        
+        <script type='text/javascript'>
+            var divElement = document.getElementById('viz1771286781362');
+            var vizElement = divElement.getElementsByTagName('object')[0];
+            vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
+            var scriptElement = document.createElement('script');
+            scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+            vizElement.parentNode.insertBefore(scriptElement, vizElement);
+        </script>
+    </div>
+
+    <details style="background: #111; border: 1px solid #333; cursor: pointer; color: #ccc;">
+        
+        <summary style="padding: 15px; font-weight: bold; list-style: none; display: flex; align-items: center; outline: none;">
+            <span style="margin-right: 10px; color: #ff0000;">▶</span> 
+            <span style="text-transform: uppercase; letter-spacing: 1px;">Click here for the Full Vendor Analysis</span>
+        </summary>
+
+        <div style="padding: 20px; border-top: 1px solid #333; font-family: 'Courier New', Courier, monospace; font-size: 0.9em; line-height: 1.6;">
+            
+            <p style="margin-bottom: 20px; color: #fff;">
+                Based on the dataset extracted, here is the breakdown of suppliers by magnitude and functional category, distinguishing between private giants and public entities.
+            </p>
+
+            <div style="margin-bottom: 25px;">
+                <h4 style="color: #ff0000; margin-bottom: 5px;">1. THE DOMINANT GROUP: UNDISCLOSED (N.A.)</h4>
+                <p>
+                    <strong>Over 7,000 cases.</strong> This represents the largest share of the dataset. These records indicate technology adoptions where the specific vendor was not disclosed due to confidentiality clauses, national security reasons, or lack of contract transparency (e.g., cell-site simulators in Anchorage or drone usage in smaller municipalities).
+                </p>
+            </div>
+
+            <div style="margin-bottom: 25px;">
+                <h4 style="color: #ff0000; margin-bottom: 5px;">2. THE PRIVATE MARKET GIANTS</h4>
+                <ul style="list-style-type: none; padding-left: 0;">
+                    <li style="margin-bottom: 10px;">
+                        <strong>Flock Safety (~2,700 cases):</strong> Primary supplier of Automated License Plate Readers (ALPR) like the Falcon and Condor models. Also produces audio gunshot detection (Raven) and autonomous response drones.
+                    </li>
+                    <li style="margin-bottom: 10px;">
+                        <strong>Axon / Fusus (~1,100 cases):</strong> Axon holds a near-monopoly on body-worn cameras and the evidence cloud (Evidence.com). Fusus (now Axon) provides the "Real-Time Crime Center" cloud, unifying public and private camera feeds.
+                    </li>
+                    <li style="margin-bottom: 10px;">
+                        <strong>SoundThinking (~900 cases):</strong> Formerly <em>ShotSpotter</em>, leader in acoustic gunshot detection. Also provides predictive policing software (ResourceRouter) and investigative platforms (CrimeTracer).
+                    </li>
+                    <li style="margin-bottom: 10px;">
+                        <strong>DJI (~700 cases):</strong> Chinese market leader for UAVs (drones) used for aerial footage and tactical monitoring.
+                    </li>
+                    <li style="margin-bottom: 10px;">
+                        <strong>Motorola Solutions (~600 cases):</strong> A complete ecosystem including body-cams, drones, ALPR (Vigilant Solutions), and the citizen camera registry platform CityProtect.
+                    </li>
+                </ul>
+            </div>
+
+            <div style="margin-bottom: 25px;">
+                <h4 style="color: #ff0000; margin-bottom: 5px;">3. SPECIALISTS & BIG DATA BROKERS</h4>
+                <ul style="list-style-type: none; padding-left: 0;">
+                    <li style="margin-bottom: 10px;">
+                        <strong>State Biometrics (Idemia & NEC):</strong> Idemia provides algorithms for state databases (e.g., Michigan, Florida), while NEC manages regional facial recognition systems like WideNet.
+                    </li>
+                    <li style="margin-bottom: 10px;">
+                        <strong>Algorithmic Specialists:</strong> Includes <em>Geolitica</em> (Predictive Policing), <em>Dataminr</em> (Real-time social media monitoring), and <em>ZenCity</em> (Public sentiment analysis).
+                    </li>
+                    <li style="margin-bottom: 10px;">
+                        <strong>Big Data Brokers:</strong> Companies like <em>LexisNexis</em>, <em>Thomson Reuters</em>, and <em>TransUnion</em> provide investigative platforms that cross-reference massive amounts of public and private data (e.g., Accurint, CLEAR, TLOxp).
+                    </li>
+                    <li style="margin-bottom: 10px;">
+                        <strong>Spyware & Interception:</strong> Niche providers like <em>Harris</em>, <em>Octasic</em>, and <em>Cellebrite</em> supply cell-site simulators (Stingrays) and phone extraction tools.
+                    </li>
+                </ul>
+            </div>
+
+            <div style="margin-bottom: 10px;">
+                <h4 style="color: #ff0000; margin-bottom: 5px;">4. PUBLIC VENDORS (STATE SYSTEMS)</h4>
+                <p>In these cases, a state agency acts as the technology provider for local police:</p>
+                <ul style="list-style-type: none; padding-left: 0;">
+                    <li style="margin-bottom: 5px;"><strong>LACRIS:</strong> Los Angeles County biometric database serving hundreds of local agencies.</li>
+                    <li style="margin-bottom: 5px;"><strong>FACES:</strong> Pinellas County Sheriff's system, granting access to 25 million photos.</li>
+                    <li style="margin-bottom: 5px;"><strong>SNAP:</strong> Michigan State Police statewide biometric network.</li>
+                    <li style="margin-bottom: 5px;"><strong>Tennessee Highway Patrol:</strong> Centralized IBM predictive analytics system shared with 95 sheriffs. TO BE CONTINUED... </li>
+                </ul>
+            </div>
+
+        </div>
+    </details>
+
+    <style>
+        details[open] summary span:first-child {
+            transform: rotate(90deg);
+            display: inline-block;
+        }
+    </style>
+
+</section>
+
+<section id="vendor-tech" style="margin-top: 80px; margin-bottom: 100px;">
+    
+    <h2>7. Vendor Presence: Who Produces What?</h2>
+    
+    <p>
+        This interactive visualization breaks down the market share of vendors for each specific surveillance technology. 
+        It allows you to explore who dominates the market for drones, body cams, or facial recognition.
+    </p>
+
+    <div style="background: #1a1a1a; border-left: 4px solid #000; padding: 15px; margin-bottom: 25px; color: #bbb;">
+        <strong>⚠ PAY ATTENTION :</strong><br>
+        In almost every category, the "Not Available" (Black) bar is prevalent. This represents the <strong>Shadow Market</strong>: contracts where the supplier's identity is deliberately omitted, hidden behind shell companies, or redacted for security reasons. 
+To zoom in and see the origin of less common technologies, move the count slider from 3949 to 1.
+    </div>
+
+    <div class="viz-container" style="margin-bottom: 30px;">
+        <div class='tableauPlaceholder' id='viz1771287763165' style='position: relative'>
+            <noscript>
+                <a href='#'>
+                    <img alt='Vendors in Technologies ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;DH&#47;DHPROJECTATLASSURVEILLANCE&#47;VendorsinTechnologies&#47;1_rss.png' style='border: none' />
+                </a>
+            </noscript>
+            <object class='tableauViz' style='display:none;'>
+                <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
+                <param name='embed_code_version' value='3' /> 
+                <param name='site_root' value='' />
+                <param name='name' value='DHPROJECTATLASSURVEILLANCE&#47;VendorsinTechnologies' />
+                <param name='tabs' value='no' />
+                <param name='toolbar' value='yes' />
+                <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;DH&#47;DHPROJECTATLASSURVEILLANCE&#47;VendorsinTechnologies&#47;1.png' /> 
+                <param name='animate_transition' value='yes' />
+                <param name='display_static_image' value='yes' />
+                <param name='display_spinner' value='yes' />
+                <param name='display_overlay' value='yes' />
+                <param name='display_count' value='yes' />
+                <param name='language' value='it-IT' />
+            </object>
+        </div>
+        
+        <script type='text/javascript'>
+            var divElement = document.getElementById('viz1771287763165');
+            var vizElement = divElement.getElementsByTagName('object')[0];
+            vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
+            var scriptElement = document.createElement('script');
+            scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+            vizElement.parentNode.insertBefore(scriptElement, vizElement);
+        </script>
+    </div>
+
+    <div style="border: 1px solid #333; background: #080808; padding: 25px;">
+        <h3 style="color: #ff0000; margin-top: 0; border-bottom: 1px solid #444; padding-bottom: 10px;">
+            <span style="font-size:1.2em;">👁</span> THE "BLACK HOLE" ANOMALY
+        </h3>
+        
+        <p style="color: #ccc; margin-bottom: 15px;">
+            When observing <strong>Fusion Centers</strong> and <strong>Real-Time Crime Centers (RTCC)</strong>, you will notice they are almost entirely "Undisclosed" (Black).
+        </p>
+        
+        <p style="font-size: 0.9em; line-height: 1.6; color: #999;">
+            <strong>Why is this data hidden?</strong><br>
+            Unlike a drone or a camera, which are products bought from a catalog, Fusion Centers are <em>operational infrastructures</em>. They are not simply "bought"; they are established through federal grants and partnerships with the <strong>Department of Homeland Security (DHS)</strong> and the <strong>FBI</strong>. 
+            <br><br>
+            The "vendor" in these cases is often a complex web of classified government contracts and defense contractors. Their operations fall under national security protocols, making them immune to standard public procurement transparency. Effectively, the state itself is the vendor.
+        </p>
+    </div>
+
+</section>
+
+<section id="vendor-nature">
+            <h2>9. NATURE OF THE TECHNOLOGY VENDOR</h2>
+            
+            <p>
+                Who holds the keys to the surveillance state? We have classified the vendors into three categories to map the control of security:
+            </p>
+
+            <div class="legend-container">
+                <div class="legend-item">
+                    <span class="dot dot-blue"></span>
+                    <div>
+                        <strong style="color:#fff;">STATE INFRASTRUCTURE (Blue):</strong> 
+                        <span style="color:#aaa;">The "Public Brain". Command centers and intelligence hubs (Fusion Centers, Real-Time Crime Centers) run directly by the government.</span>
+                    </div>
+                </div>
+                <div class="legend-item">
+                    <span class="dot dot-red"></span>
+                    <div>
+                        <strong style="color:#fff;">PRIVATE CORPORATION (Red):</strong> 
+                        <span style="color:#aaa;">The "Profit-Driven Senses". Technologies provided by for-profit companies acting as rented senses for the State (e.g., Drones, ALPR, Bodycams).</span>
+                    </div>
+                </div>
+                <div class="legend-item">
+                    <span class="dot dot-black"></span>
+                    <div>
+                        <strong style="color:#fff;">UNDECLARED VENDOR (Black):</strong> 
+                        <span style="color:#aaa;">The "Transparency Gap". Opaque cases where technology is adopted but the vendor is not cited in public documents.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="viz-container">
+                <div class='tableauPlaceholder' id='viz1771289426167' style='position: relative'>
+                    <noscript>
+                        <a href='#'>
+                            <img alt='Privatization ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;DH&#47;DHPROJECTATLASSURVEILLANCE&#47;Privatization&#47;1_rss.png' style='border: none' />
+                        </a>
+                    </noscript>
+                    <object class='tableauViz' style='display:none;'>
+                        <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
+                        <param name='embed_code_version' value='3' /> 
+                        <param name='site_root' value='' />
+                        <param name='name' value='DHPROJECTATLASSURVEILLANCE&#47;Privatization' />
+                        <param name='tabs' value='no' />
+                        <param name='toolbar' value='yes' />
+                        <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;DH&#47;DHPROJECTATLASSURVEILLANCE&#47;Privatization&#47;1.png' /> 
+                        <param name='animate_transition' value='yes' />
+                        <param name='display_static_image' value='yes' />
+                        <param name='display_spinner' value='yes' />
+                        <param name='display_overlay' value='yes' />
+                        <param name='display_count' value='yes' />
+                        <param name='language' value='it-IT' />
+                    </object>
+                </div>
+                <script type='text/javascript'>
+                    var divElement = document.getElementById('viz1771289426167');
+                    var vizElement = divElement.getElementsByTagName('object')[0];
+                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
+                    var scriptElement = document.createElement('script');
+                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+                    vizElement.parentNode.insertBefore(scriptElement, vizElement);
+                </script>
+            </div>
+
+            <div class="alert-box">
+                <h3>SYSTEM ALERT: PRIVATIZATION OF FORCE</h3>
+                <div class="alert-text">
+                    <p>
+                        <strong style="color: #ff0000; text-transform: uppercase;">Critical Observation:</strong> 
+                        The data highlights that the technology is produced and distributed in large majority by the <span class="highlight">Private Sector</span>.
+                    </p>
+                    <p>
+                        This indicates a massive <strong>privatization of security</strong> across the United States. 
+                        The Public Sector (the Police) is becoming structurally dependent on the Private Sector to function. 
+                        When public safety relies on proprietary algorithms and corporate hardware, the line between state authority and corporate profit vanishes.
+                    </p>
+                </div>
+            </div>
+
+        </section>
+
+<section id="final-verdict">
+            <h2>10. THE PRIVATIZATION OF SECURITY: THE FINAL NUMBERS</h2>
+            
+            <p>
+                The analysis of the Atlas of Surveillance dataset reveals a definitive conclusion: The State has lost direct control over its technological infrastructure.
+            </p>
+
+            <div class="stat-breakdown">
+                <div class="stat-card">
+                    <span class="stat-number num-red">52.03%</span>
+                    <span class="stat-label">Private Corporations</span>
+                    <p style="font-size:0.8rem; color:#666;">Profit-driven surveillance.</p>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number num-black">45.87%</span>
+                    <span class="stat-label">Undeclared (The Shadow)</span>
+                    <p style="font-size:0.8rem; color:#666;">Opaque vendors protected by NDAs.</p>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number num-blue">2.10%</span>
+                    <span class="stat-label">State Infrastructure</span>
+                    <p style="font-size:0.8rem; color:#666;">Publicly owned tech.</p>
+                </div>
+            </div>
+
+            <div class="viz-container">
+                <div class='tableauPlaceholder' id='viz1771342779874' style='position: relative'>
+                    <noscript>
+                        <a href='#'>
+                            <img alt='Privat.Pie ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;DH&#47;DHPROJECTATLASSURVEILLANCE&#47;Privat_Pie&#47;1_rss.png' style='border: none' />
+                        </a>
+                    </noscript>
+                    <object class='tableauViz' style='display:none;'>
+                        <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
+                        <param name='embed_code_version' value='3' /> 
+                        <param name='site_root' value='' />
+                        <param name='name' value='DHPROJECTATLASSURVEILLANCE&#47;Privat_Pie' />
+                        <param name='tabs' value='no' />
+                        <param name='toolbar' value='yes' />
+                        <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;DH&#47;DHPROJECTATLASSURVEILLANCE&#47;Privat_Pie&#47;1.png' /> 
+                        <param name='animate_transition' value='yes' />
+                        <param name='display_static_image' value='yes' />
+                        <param name='display_spinner' value='yes' />
+                        <param name='display_overlay' value='yes' />
+                        <param name='display_count' value='yes' />
+                        <param name='language' value='it-IT' />
+                    </object>
+                </div>
+                <script type='text/javascript'>
+                    var divElement = document.getElementById('viz1771342779874');
+                    var vizElement = divElement.getElementsByTagName('object')[0];
+                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
+                    var scriptElement = document.createElement('script');
+                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+                    vizElement.parentNode.insertBefore(scriptElement, vizElement);
+                </script>
+            </div>
+
+            <div class="analysis-grid">
+                <div class="analysis-col">
+                    <h3>The nature of security: Police as a client </h3>
+                    <p style="color:#aaa; font-size:0.9rem; margin-bottom:20px;">We have shifted from physical ownership (cars, paper files) to a digital rental model.</p>
+                    
+                    <div class="analysis-item">
+                        <strong>Rented Senses (SaaS)</strong><br>
+                        The State rents its "eyes and ears". Companies like Axon don't just sell hardware; they manage the entire cloud evidence system.
+                    </div>
+                    <div class="analysis-item">
+                        <strong>Black Box Algorithms</strong><br>
+                        Predictive policing logic (e.g., Geolitica) is corporate property, legally inaccessible to public scrutiny or democratic control.
+                    </div>
+                    <div class="analysis-item">
+                        <strong>De Facto Monopolies</strong><br>
+                        A few actors control critical segments, such as Flock Safety (license plates) and SoundThinking (gunshot detection).
+                    </div>
+                </div>
+
+                <div class="analysis-col">
+                    <h3>Systemic & Social Risks</h3>
+                    <p style="color:#aaa; font-size:0.9rem; margin-bottom:20px;">Delegating surveillance to a private oligopoly creates immediate dangers.</p>
+                    
+                    <div class="analysis-item">
+                        <strong>Erosion of Sovereignty</strong><br>
+                        Security becomes a commodity. If the State stops paying the subscription, it loses access to its own criminal data.
+                    </div>
+                    <div class="analysis-item">
+                        <strong>Algorithmic Bias</strong><br>
+                        Private algorithms can disproportionately target minorities without any democratic oversight.
+                    </div>
+                    <div class="analysis-item">
+                        <strong>Profit vs. Rights</strong><br>
+                        Companies push for invasive tech (like Clearview AI facial recognition) to maximize revenue, ignoring civil liberties.
+                    </div>
+                </div>
+            </div>
+
+            <div class="future-scenarios">
+                <h3 class="future-title">⚠ FUTURE THREAT SCENARIOS</h3>
+                <div class="scenario-list">
+                    <div class="scenario-card">
+                        <h4>1. State becomes dependent</h4>
+                        <p style="font-size:0.9rem; color:#ccc;">
+                            Police departments become "locked-in" to vendor ecosystems. Public safety budgets are drained by licensing fees, forcing departments to prioritize revenue-generating policing (fines) over safety to pay the software bills.
+                        </p>
+                    </div>
+                    <div class="scenario-card">
+                        <h4>2. Automated Apartheid</h4>
+                        <p style="font-size:0.9rem; color:#ccc;">
+                            "Black Box" algorithms classify entire neighborhoods as "high risk" based on biased historical data. This creates a feedback loop where residents are constantly monitored and arrested, justifying further spending on private tech.
+                        </p>
+                    </div>
+                    <div class="scenario-card">
+                        <h4>3. Data Leakage & Sale</h4>
+                        <p style="font-size:0.9rem; color:#ccc;">
+                            Biometric data collected by police bodycams and drones flows into private servers. Without strict regulation, this sensitive data can be sold to insurance companies, advertisers, or foreign actors.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="thesis-conclusion">
+                <div class="thesis-text">
+                    <p>
+                        <strong>CONCLUSION:</strong> The privatization of surveillance in the USA is not just a change in procurement; it is a change in <em>governance</em>.
+                    </p>
+                    <p>
+                        When the "Public Sector" (Police) becomes chemically dependent on the "Private Sector" (Corporations) to function, <strong>public safety ceases to be a right and becomes a product.</strong>
+                    </p>
+                    <p>
+                        Citizens are no longer the constituents to be protected, but the raw data to be harvested for profit. </p>
+                </div>
+            </div>
+
+        </section>
+
+<section id="about-project">
+    <h2>// ABOUT THE PROJECT</h2>
+
+    <div class="about-grid">
+        
+        <div class="about-block">
+            <h3>The Vision</h3>
+            <p>
+                "The Architecture of the Eye" is a digital research project designed to map the surveillance infrastructure in the United States. The objective is not merely to quantify cameras or drones, but to unmask the transfer of power from the public sector to a private oligopoly.
+            </p>
+            <p>
+                This study transforms thousands of technological acquisition records into a visual narrative that interrogates the future of state sovereignty and citizen rights.
+            </p>
+        </div>
+
+        <div class="about-block">
+            <h3>Data Source & Methodology</h3>
+            <p>
+                The core of this project is a critical analysis of the raw dataset from the <em>Atlas of Surveillance</em>.
+            </p>
+            <ul class="tech-list">
+                <li>
+                    <strong>Intrusiveness Index:</strong> We distinguished between "standard" tools (e.g., Bodycams) and "high-risk" technologies (e.g., Facial Recognition, Predictive Policing) to calculate the real dystopian impact in every State.
+                </li>
+                <li>
+                    <strong>Vendor Mapping:</strong> We analyzed contractual relationships to identify the true manufacturers of the technology, categorizing actors into State Infrastructure, Private Corporations, and Undeclared Vendors.
+                </li>
+            </ul>
+        </div>
+
+        <div class="about-block challenge-section">
+            <h3>⚠ Technical Challenges: The "Shadow Data"</h3>
+            <p>
+                The greatest challenge of this study was not visualization, but <strong>data cleaning and restructuring</strong>. The original dataset presented critical obstacles requiring months of analytical work. Cleaning and standardizing thousands of records from heterogeneous sources was a slow, meticulous process.
+            </p>
+            <p>
+                <strong>The Enigma of ND/NULL Data:</strong> A significant discovery emerged from a technical obstacle. We encountered massive amounts of missing data (N.A. or NULL) in the vendor column.
+            </p>
+            <p style="margin-top: 15px; border-left: 2px solid #fff; padding-left: 15px;">
+                <span class="challenge-highlight">OUR DECISION:</span> Instead of ignoring these voids, we interpreted them as political data. We understood that "Null" data represents the <em>Transparency "Black Zone"</em>: contracts protected by Non-Disclosure Agreements (NDAs), trade secrets, or national security protocols. These "voids" became an integral part of the thesis, representing 45.87% of the market.
+            </p>
+        </div>
+
+        <div class="about-block">
+            <h3>Design & Tools</h3>
+            <ul class="tech-list">
+                <li>
+                    <strong>Data Analysis:</strong> <span style="color:#fff">OpenRefine</span> (used for the rigorous cleaning and normalization of the raw dataset).
+                </li>
+                <li>
+                    <strong>Visualization:</strong> <span style="color:#fff">Tableau Public</span> (used to create interactive choropleth maps, pie charts, and dynamic histograms).
+                </li>
+                <li>
+                    <strong>Web Development:</strong> Custom HTML5 and CSS3 to create a "Cyber-Tactical" interface, designed to guide the user through an immersive investigative narrative.
+                </li>
+            </ul>
+        </div>
+
+        <div class="about-block">
+            <h3>Credits & Collaborations</h3>
+            <ul class="credit-list">
+                <li>
+                    <span class="credit-name">Electronic Frontier Foundation (EFF)</span>
+                    For making the <em>Atlas of Surveillance</em> public, a vital resource for digital democracy.
+                </li>
+                <li>
+                    <span class="credit-name">Gemini (AI Collaborator)</span>
+                    For technical assistance in code development and analytical text synthesis.
+                </li>
+                <li>
+                    <span class="credit-name">Academic Supervision</span>
+                    Inspired by Digital Humanities projects from the <strong>Digital Humanities Course</strong> at <strong>Roma Tre University</strong>.
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</section>
+
+        <footer>
+            <p> This project is for educational purposes only. Big Brother is watching you. </p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
