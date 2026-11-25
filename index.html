@@ -408,11 +408,11 @@ footer{padding:28px 24px 80px;display:flex;justify-content:space-between;flex-wr
       <p>Use the chapter index (right edge, or the "Chapters" button on mobile) to jump between chapters.</p>
     </aside>
     <ol class="findings-list">
-      <li><span class="fn">1</span><p><strong>Surveillance seems to follow wealth, not crime.</strong> Some of the safest states, New Jersey and Massachusetts, host some of the densest surveillance grids. <a href="#geography">Ch. 01</a></p></li>
-      <li><span class="fn">2</span><p><strong>It is bipartisan.</strong> Blue and red states converge on the same level of coverage. <a href="#geography">Ch. 01</a></p></li>
-      <li><span class="fn">3</span><p><strong>Michigan, Florida and California</strong> rank highest for the most invasive tools: facial recognition, predictive policing, cell-site simulators. <a href="#invasive">Ch. 04</a></p></li>
-      <li><span class="fn">4</span><p><strong>A handful of companies dominate.</strong> Flock Safety alone appears in ~2,700 cases, Axon/Fusus in ~1,100. <a href="#vendors">Ch. 06</a></p></li>
-      <li><span class="fn">5</span><p><strong>Only 2.10% of the technology is public.</strong> Policing increasingly runs on rented, proprietary infrastructure. <a href="#numbers">Ch. 09</a></p></li>
+      <li><span class="fn">1</span><p><strong>Where the vendor is known, it is almost always private.</strong> 52.03% of records name a private company and only 2.10% a public body: among identified suppliers, about 96% are private. <a href="#numbers">Ch. 09</a></p></li>
+      <li><span class="fn">2</span><p><strong>Almost half of the records name no vendor.</strong> The 45.87% "shadow" mixes undisclosed contracts, state-run infrastructures and incomplete sources. <a href="#who-produces">Ch. 07</a></p></li>
+      <li><span class="fn">3</span><p><strong>A few companies recur.</strong> Flock Safety appears in ~2,700 records, Axon/Fusus in ~1,100, SoundThinking in ~900. <a href="#vendors">Ch. 06</a></p></li>
+      <li><span class="fn">4</span><p><strong>Michigan, Florida and California</strong> stand out for "high risk" tools such as face recognition, predictive policing and cell-site simulators. <a href="#invasive">Ch. 04</a></p></li>
+      <li><span class="fn">5</span><p><strong>Volume is not intensity.</strong> The states with most records are also large, have many local agencies or were covered by statewide surveys: a per-capita reading is needed before speaking of "most watched" states. <a href="#geography">Ch. 01</a></p></li>
     </ol>
   </div>
 </section>
@@ -426,17 +426,21 @@ footer{padding:28px 24px 80px;display:flex;justify-content:space-between;flex-wr
     <aside class="aside">
       <b>Source</b>
       <p><a href="https://www.atlasofsurveillance.org/search?location=&amp;commit=Search+the+Data" target="_blank" rel="noopener">Atlas of Surveillance</a>, Electronic Frontier Foundation and the Reynolds School of Journalism.</p>
-      <p>Last update of the data: December 4, 2025.</p>
+      <p>Version analyzed: dataset of December 4, 2025.</p>
+      <b>Verify the data</b>
+      <p><a href="https://atlasofsurveillance.org/download.csv" target="_blank" rel="noopener">Download the full dataset (CSV)</a></p>
+      <p><a href="https://www.atlasofsurveillance.org/search" target="_blank" rel="noopener">Search the records online</a></p>
+      <p><a href="https://www.atlasofsurveillance.org/methodology" target="_blank" rel="noopener">EFF methodology &amp; limits</a></p>
     </aside>
-    <p class="lead drop">The data contained in the Atlas of Surveillance is open-source intelligence, or <mark>OSINT</mark>. This is a term used to describe gathering information that already exists online — from news stories, social media posts, press releases, or documents buried in government websites, often turned up through advanced search engine techniques.</p>
+    <p class="lead drop">The Atlas of Surveillance is built on open-source intelligence, or <mark>OSINT</mark>. In the words of its authors, OSINT means "gathering information that already exists online—from news stories, social media posts, press releases, or documents buried in government websites, often turned up through using advanced search engine techniques" (<a href="https://www.atlasofsurveillance.org/methodology" target="_blank" rel="noopener">EFF, Methodology</a>).</p>
     <p>The dataset is a comprehensive archive that documents the adoption of surveillance technologies by thousands of municipal, county and state law enforcement agencies in the USA. Each "case" in the dataset records a specific instance of a technology being purchased, implemented or used by a U.S. government agency.</p>
-    <p>In an era of digital panopticon, this project aims to reverse the gaze. If the authorities monitor the citizens, <strong>OSINT allows citizens to monitor the watchers.</strong> The Atlas of Surveillance data was last updated on December 4, 2025.</p>
+    <p>In an era of digital panopticon, this project aims to reverse the gaze. If the authorities monitor the citizens, <strong>OSINT allows citizens to monitor the watchers.</strong> This analysis uses the version of the dataset updated on December 4, 2025.</p>
 
     <h3>Mission objectives</h3>
     <p>This investigation aims to dissect the American surveillance apparatus by identifying the private companies driving this expansion. The analysis focuses on three pillars:</p>
     <dl class="memo">
-      <div><dt>Pillar A</dt><dd><strong>Technological review</strong>Identifying which specific tools (drones, facial recognition, bodycams, real-time crime centers) are dominating the market.</dd></div>
-      <div><dt>Pillar B</dt><dd><strong>Territorial distribution</strong>Mapping the density of surveillance to find the most "watched" states in the Union.</dd></div>
+      <div><dt>Pillar A</dt><dd><strong>Technological review</strong>Identifying which specific tools (drones, facial recognition, bodycams, real-time crime centers) appear most often in the records.</dd></div>
+      <div><dt>Pillar B</dt><dd><strong>Territorial distribution</strong>Mapping how many technologies are documented in each state, and what kind.</dd></div>
       <div><dt>Pillar C</dt><dd><strong>The privatization of security</strong>Discussing the shift from public security to private corporate profit.</dd></div>
     </dl>
   </div>
@@ -446,16 +450,16 @@ footer{padding:28px 24px 80px;display:flex;justify-content:space-between;flex-wr
 <section class="sheet paper" id="geography">
   <div class="opener">
     <div class="num">01</div>
-    <div><span class="kick small">Geospatial density</span><h2>Where is the eye? <span class="q">Which U.S. states use the most surveillance technology?</span></h2></div>
+    <div><span class="kick small">Geographic distribution</span><h2>Where is the eye? <span class="q">Which U.S. states have the most documented surveillance technology?</span></h2></div>
   </div>
   <div class="doc">
     <aside class="aside">
       <b>Chart type</b>
       <p>Choropleth map: darker shades mean more technology records per state.</p>
       <b>Caveat</b>
-      <p>Counts are absolute, not per capita: populous states such as California and Texas are naturally favored. A per-capita version would sharpen the comparison.</p>
+      <p>Counts are absolute, not per capita: populous states and states with many local police agencies are naturally favored.</p>
     </aside>
-    <p>The following <strong>choropleth map</strong> visualizes the concentration of surveillance technologies across the United States. The color gradient represents the density of technology purchased and implemented in police departments.</p>
+    <p>The following <strong>choropleth map</strong> shows how many surveillance technology records the Atlas documents in each state. The color gradient measures <strong>documented volume</strong>, not per-capita intensity: it tells us where adoptions have been recorded, not yet where residents are most watched.</p>
 
     <figure class="exhibit full">
       <div class="exhibit-tag"><span class="letter">Exhibit A</span><span class="ttl">Surveillance in states</span></div>
@@ -464,7 +468,7 @@ footer{padding:28px 24px 80px;display:flex;justify-content:space-between;flex-wr
     </figure>
 
     <table class="table">
-      <caption class="small">Quantitative ranking — top 10 states by technological density</caption>
+      <caption class="small">Quantitative ranking — top 10 states by number of records</caption>
       <thead><tr><th>#</th><th>State</th><th style="width:45%">Rank order</th></tr></thead>
       <tbody>
         <tr><td class="r">1</td><td class="st">California</td><td><span class="lead-bar" style="width:100%"></span></td></tr>
@@ -481,20 +485,25 @@ footer{padding:28px 24px 80px;display:flex;justify-content:space-between;flex-wr
     </table>
     <p class="small" style="margin-top:6px">Bars show rank order only, not absolute values.</p>
 
+    <div class="howto">
+      <span class="small">Why New Jersey ranks #2</span>
+      <p style="margin:0">The position of New Jersey is largely an effect of how the data were collected. The EFF imported into the Atlas the <a href="https://www.atlasofsurveillance.org/data-library" target="_blank" rel="noopener">2020 body-worn camera survey of the New Jersey Attorney General</a>, which covered law enforcement agencies across the whole state. New Jersey also has hundreds of small municipal police departments, each counted as a separate agency. Both factors multiply the number of records, regardless of how intensively residents are actually monitored.</p>
+    </div>
+
     <details class="folder">
       <summary>Critical analysis <span class="cnt">2 documents</span></summary>
       <div class="inside"><div class="sheet-in">
         <div class="entry">
-          <h4><span class="ref">[A]</span> The security paradox</h4>
-          <p>Data reveals a disconnect between actual danger and monitoring density.</p>
-          <p><strong>The safe yet watched:</strong> New Jersey (#2) and Massachusetts (#9) rank among the states with the lowest violent crime rates (see the FBI <a href="https://cde.ucr.cjis.gov/" target="_blank" rel="noopener">Crime Data Explorer</a>), yet they show two of the densest surveillance grids in the dataset.</p>
-          <p><strong>The dangerous yet unwatched:</strong> conversely, states with historically the highest violent crime rates per capita (such as Louisiana, New Mexico or Alaska) are notably absent from the top tech-adoption list. Even Tennessee (#8), despite its higher crime challenges, ranks lower in tech adoption than the wealthy, safer suburbs of the Northeast.</p>
-          <p><em>Interpretation:</em> surveillance looks like a luxury commodity. The "Digital Eye" appears to follow <mark>institutional wealth</mark> and municipal budget surpluses, not criminal activity.</p>
+          <h4><span class="ref">[A]</span> The security paradox — a hypothesis</h4>
+          <p>The ranking raises a question rather than proving an answer: documented surveillance does not seem to match the geography of violent crime.</p>
+          <p><strong>Safe yet recorded:</strong> New Jersey (#2) and Massachusetts (#9) are among the states with the lowest violent crime rates (FBI <a href="https://cde.ucr.cjis.gov/" target="_blank" rel="noopener">Crime Data Explorer</a>), yet they rank among the states with the most records.</p>
+          <p><strong>Dangerous yet less recorded:</strong> states with historically high violent crime rates per capita (such as Louisiana, New Mexico or Alaska) are absent from the top ten, and Tennessee (#8) ranks below New Jersey despite higher crime.</p>
+          <p><em>Hypothesis:</em> adoption may follow <mark>institutional capacity</mark>—budgets, federal grants, procurement offices and the sheer number of agencies—more than crime levels. As the note on New Jersey shows, part of the effect also comes from how the data were collected. Testing the hypothesis would require normalizing records by population and number of agencies, and comparing them with crime and income data.</p>
         </div>
         <div class="entry">
-          <h4><span class="ref">[B]</span> Bipartisan consensus</h4>
-          <p>The digital eye is ideologically neutral. High surveillance density appears in both historically Democratic "Blue" states (California, Illinois) and Republican "Red" states (Texas, Florida).</p>
-          <p>Whether the political justification is police "reform" and accountability, or strict "law &amp; order" enforcement, the result is the same: <mark>near-total coverage</mark>. The expansion of the surveillance state is a bipartisan phenomenon that transcends the political divide.</p>
+          <h4><span class="ref">[B]</span> Across the political divide</h4>
+          <p>The top of the ranking includes both historically Democratic states (California, Illinois) and historically Republican states (Texas, Florida).</p>
+          <p>Whether the political justification is police "reform" and accountability, or strict "law &amp; order" enforcement, surveillance technology is adopted on both sides. This is an observation on four large states, not a statistical test, but it suggests that the expansion of police surveillance is <mark>not a partisan phenomenon</mark>.</p>
         </div>
       </div></div>
     </details>
@@ -587,14 +596,19 @@ footer{padding:28px 24px 80px;display:flex;justify-content:space-between;flex-wr
     <div class="ledger">
       <div>
         <div class="hd hi">High risk / invasive</div>
-        <p>Technologies that actively spy, predict behavior or aggregate data, often without public knowledge. These represent the "dystopian" shift in policing.</p>
+        <p>Technologies that operate covertly or continuously, predict behavior, or aggregate data from many sources, often without public knowledge. These represent the "dystopian" shift in policing.</p>
         <ul><li>Drones (UAVs)</li><li>Facial recognition</li><li>Cell-site simulators (Stingrays)</li><li>Predictive policing (PredPol)</li><li>Fusion centers</li><li>Real-Time Crime Centers (RTCC)</li><li>Third-party data brokers</li><li>Gunshot detection</li></ul>
       </div>
       <div>
         <div class="hd">Common use / standard</div>
-        <p>Tools that are now considered standard equipment for modern law enforcement, often cited for accountability or basic monitoring.</p>
+        <p>Tools that have become standard, widely deployed equipment for modern law enforcement, often cited for accountability or basic monitoring. "Standard" does not mean harmless.</p>
         <ul><li>Body-worn cameras</li><li>Automated License Plate Readers (ALPR)</li><li>Camera registry</li><li>Video analytics</li></ul>
       </div>
+    </div>
+
+    <div class="howto">
+      <span class="small">Classification note</span>
+      <p style="margin:0">The split reflects how <strong>established</strong> a tool is in everyday policing, not only how much it can reveal. ALPR and video analytics can track people at scale, but they have become so widespread that they are treated here as the new baseline. Gunshot detection is classified as high risk because its acoustic sensors listen continuously in residential neighborhoods. A different choice—for example moving ALPR into the high-risk group—would change the index, especially for states with large plate-reader networks.</p>
     </div>
 
     <figure class="exhibit full">
@@ -609,23 +623,23 @@ footer{padding:28px 24px 80px;display:flex;justify-content:space-between;flex-wr
   <div class="doc">
     <aside class="aside">
       <b>Method</b>
-      <p>Records are weighted towards "high risk" technologies (tools that identify, track or predict) over "common use" tools.</p>
+      <p>For each state, the index compares the records of "high risk" technologies with those of "common use" tools, as shown in Exhibit D.</p>
     </aside>
     <h3 style="margin-top:0">The Dystopian Index: top 3 ranked states</h3>
-    <p>By weighting the data towards "high risk" technologies (tools that identify, track, or predict) over "common use" tools, the following states emerge as the most heavily surveilled environments:</p>
+    <p>Comparing, state by state, the records of "high risk" technologies with those of "common use" tools (Exhibit D), three states stand out. The context given for each comes from public reporting and helps explain the result; it is not itself measured in the dataset.</p>
   </div>
   <div class="podium">
     <article>
       <div class="state"><small>No. 1 · Facial recognition · Fusion centers</small>Michigan</div>
-      <div class="why"><span class="small">Why it is #1</span>Michigan holds the top spot due to an aggressive integration of <em>facial recognition</em> and <em>fusion centers</em>. The state is a testing ground for real-time surveillance networks (such as Detroit's "Project Green Light") where private video feeds are directly linked to police command, creating a state of constant, active monitoring.</div>
+      <div class="why"><span class="small">Context</span>Michigan's position reflects the weight of <em>facial recognition</em> and <em>fusion centers</em> among its records. The state is also a testing ground for real-time surveillance networks (such as Detroit's "Project Green Light"), where private video feeds are linked to police command.</div>
     </article>
     <article>
-      <div class="state"><small>No. 2 · Predictive policing · ALPR</small>Florida</div>
-      <div class="why"><span class="small">Why it is #2</span>Florida ranks second driven by its heavy reliance on <em>predictive policing</em> algorithms and massive <em>ALPR</em> (license plate reader) dragnets. The state's approach prioritizes data-driven "pre-crime" methodologies, tracking citizen movement patterns more intensively than almost anywhere else.</div>
+      <div class="state"><small>No. 2 · Predictive policing · Face recognition</small>Florida</div>
+      <div class="why"><span class="small">Context</span>Florida's high-risk profile is consistent with well-documented <em>predictive policing</em> programs, such as the one run by the Pasco County Sheriff's Office, and with large biometric systems like Pinellas County's FACES. The state also operates extensive ALPR networks, which this index counts as common use.</div>
     </article>
     <article>
       <div class="state"><small>No. 3 · Drones · Cell-site simulators</small>California</div>
-      <div class="why"><span class="small">Why it is #3</span>While California has high "common" usage, its third-place ranking is cemented by the sheer volume of <em>drones</em> and <em>cell-site simulators</em> (Stingrays). The density of advanced surveillance equipment in its metropolitan hubs outweighs its privacy regulations, creating a paradox of high regulation but higher intrusion.</div>
+      <div class="why"><span class="small">Context</span>California has the largest number of records overall, most of them "common use" tools. Its third place comes from the weight of <em>drones</em> and <em>cell-site simulators</em> (Stingrays) among its high-risk records: a paradox for a state with some of the strictest privacy rules in the country.</div>
     </article>
   </div>
 </section>
@@ -647,9 +661,10 @@ footer{padding:28px 24px 80px;display:flex;justify-content:space-between;flex-wr
       <figcaption>Source: Atlas of Surveillance (EFF). Elaboration by the author.</figcaption>
     </figure>
 
-    <p class="lead">The map above highlights why Michigan stands as a "Ground Zero" in the United States for the normalization of biometric surveillance. Here, the technology has transcended law enforcement to become a gatekeeper of public life. It is no longer just about catching criminals; it is about <mark>indexing the population.</mark></p>
+    <p class="lead">The map above shows why Michigan is a key case for the normalization of biometric surveillance in the United States: face recognition is available to police statewide through the State Police network (SNAP). The risk is that the technology moves beyond catching criminals towards <mark>indexing the population.</mark></p>
 
     <h3>The "always-on" watch</h3>
+    <p><em>Beyond the dataset.</em> The Atlas only records law enforcement agencies. The trends below come from wider public reporting on facial recognition in the United States and show where the technology is heading; they are not measured in Exhibit E.</p>
     <ol class="testimony">
       <li><b>Stadiums as labs</b>Sports venues have piloted systems where your face replaces your ticket. Access to public entertainment can come at the price of your biometric data.</li>
       <li><b>Retail surveillance</b>Some shopping centers have adopted facial recognition to scan customers entering the premises, cross-referencing them against private "watchlists", often without their informed consent.</li>
@@ -669,11 +684,15 @@ footer{padding:28px 24px 80px;display:flex;justify-content:space-between;flex-wr
       <b>Note on names</b>
       <p>Vendor names were normalized in OpenRefine (e.g. Fusus grouped with Axon). Counts are approximate.</p>
     </aside>
-    <p>The landscape of surveillance is not just about the police; it is about the private entities supplying the tools. The bar chart below ranks vendors by the frequency of their contracts with law enforcement and intelligence agencies, revealing a market dominated by undisclosed vendors and a few key private players.</p>
+    <p>The landscape of surveillance is not just about the police; it is about the private entities supplying the tools. The bar chart below ranks vendors by the number of records in which they appear. Most records name no vendor; among those that do, a few private companies recur far more often than all the others.</p>
+    <div class="howto">
+      <span class="small">What a record is</span>
+      <p style="margin:0">One record documents one adoption of one technology by one agency. It says nothing about the value or the duration of the contract, nor whether the technology is still in use: as the <a href="https://www.atlasofsurveillance.org/methodology" target="_blank" rel="noopener">EFF itself warns</a>, some programs are abandoned without anyone reporting it. Record counts measure <strong>presence</strong>, not market share in dollars.</p>
+    </div>
 
     <table class="table vendor-table">
-      <caption class="small">The ledger — cases per vendor</caption>
-      <thead><tr><th>Vendor</th><th style="text-align:right">Cases</th><th>Relative size</th></tr></thead>
+      <caption class="small">The ledger — records per vendor</caption>
+      <thead><tr><th>Vendor</th><th style="text-align:right">Records</th><th>Relative size</th></tr></thead>
       <tbody>
         <tr class="na"><td class="nm">Undisclosed (N.A.)<small>Vendor not named in the record</small></td><td class="n">7,000+</td><td class="b"><div class="bar" style="width:100%"></div></td></tr>
         <tr><td class="nm">Flock Safety<small>ALPR, gunshot detection, drones</small></td><td class="n">~2,700</td><td class="b"><div class="bar" style="width:38%"></div></td></tr>
@@ -712,7 +731,7 @@ footer{padding:28px 24px 80px;display:flex;justify-content:space-between;flex-wr
           <h4><span class="ref">3</span> Specialists &amp; big data brokers</h4>
           <ul>
             <li><strong>State biometrics (Idemia &amp; NEC):</strong> Idemia provides algorithms for state databases (e.g. Michigan, Florida), while NEC manages regional facial recognition systems like WideNet.</li>
-            <li><strong>Algorithmic specialists:</strong> includes <em>Geolitica</em> (predictive policing), <em>Dataminr</em> (real-time social media monitoring) and <em>ZenCity</em> (public sentiment analysis).</li>
+            <li><strong>Algorithmic specialists:</strong> includes <em>Geolitica</em> (formerly PredPol, predictive policing; it ceased operations at the end of 2023, but its past contracts remain in the records), <em>Dataminr</em> (real-time social media monitoring) and <em>ZenCity</em> (public sentiment analysis).</li>
             <li><strong>Big data brokers:</strong> companies like <em>LexisNexis</em>, <em>Thomson Reuters</em> and <em>TransUnion</em> provide investigative platforms that cross-reference massive amounts of public and private data (e.g. Accurint, CLEAR, TLOxp).</li>
             <li><strong>Spyware &amp; interception:</strong> niche providers like <em>Harris</em>, <em>Octasic</em> and <em>Cellebrite</em> supply cell-site simulators (Stingrays) and phone extraction tools.</li>
           </ul>
@@ -736,14 +755,14 @@ footer{padding:28px 24px 80px;display:flex;justify-content:space-between;flex-wr
 <section class="sheet paper" id="who-produces">
   <div class="opener">
     <div class="num">07</div>
-    <div><span class="kick small">Market share</span><h2>Vendors presence <span class="q">Who produces what?</span></h2></div>
+    <div><span class="kick small">Who supplies what</span><h2>Vendors presence <span class="q">Who produces what?</span></h2></div>
   </div>
   <div class="doc">
     <aside class="aside">
       <b>Tip</b>
       <p>To zoom in and see the origin of less common technologies, move the count slider in Exhibit G from 3949 to 19.</p>
     </aside>
-    <p>This interactive visualization breaks down the market share of vendors for each specific surveillance technology. It allows you to explore who dominates the market for drones, body cams, or facial recognition.</p>
+    <p>This interactive visualization shows, for each surveillance technology, how its records are distributed among vendors. It allows you to explore which companies appear most often for drones, body cams or facial recognition.</p>
     <div class="howto">
       <span class="small">Pay attention</span>
       <p style="margin:0">In almost every category, the "Not Available" (black) bar is prevalent. This represents the <strong>shadow market</strong>: records where the supplier's identity is not reported, whether because it was withheld, redacted, or simply never mentioned in the source.</p>
@@ -761,6 +780,7 @@ footer{padding:28px 24px 80px;display:flex;justify-content:space-between;flex-wr
       <h4>Why is this data hidden?</h4>
       <p>Unlike a drone or a camera, which are products bought from a catalog, Fusion Centers are <em>operational infrastructures</em>. They are not simply "bought"; they are established through federal grants and partnerships with the <strong>Department of Homeland Security (DHS)</strong> and the <strong>FBI</strong>.</p>
       <p>The "vendor" in these cases is often a complex web of federal grants, government contracts and defense contractors. Part of their operations falls under national security protocols, which limits standard public procurement transparency. <mark>Effectively, the state itself is the vendor.</mark></p>
+      <p><strong>Consequence for the numbers:</strong> because no vendor is named, these state-run infrastructures are counted as "undeclared" (black) in Exhibits H and I, not as "state infrastructure" (blue). The real public share is therefore higher than the 2.10% shown in Chapter 09.</p>
     </div>
   </div>
 </section>
@@ -778,9 +798,9 @@ footer{padding:28px 24px 80px;display:flex;justify-content:space-between;flex-wr
     </aside>
     <p>We have classified the vendors into three categories to map the control of security:</p>
     <div class="key">
-      <div><i class="k-pub"></i><span><strong>State infrastructure (blue).</strong> The "Public Brain". Command centers and intelligence hubs (Fusion Centers, Real-Time Crime Centers) run directly by the government.</span></div>
+      <div><i class="k-pub"></i><span><strong>State infrastructure (blue).</strong> The "Public Brain". Records in which the vendor is a public body, such as a state or county system (e.g. LACRIS, SNAP). Fusion Centers and Real-Time Crime Centers belong conceptually here, but are counted in blue only when a public vendor is named.</span></div>
       <div><i class="k-priv"></i><span><strong>Private corporation (red).</strong> The "Profit-Driven Senses". Technologies provided by for-profit companies acting as rented senses for the State (e.g. drones, ALPR, bodycams).</span></div>
-      <div><i class="k-hid"></i><span><strong>Undeclared vendor (black).</strong> The "Transparency Gap". Opaque cases where technology is adopted but the vendor is not cited in public documents.</span></div>
+      <div><i class="k-hid"></i><span><strong>Undeclared vendor (black).</strong> The "Transparency Gap". Cases where technology is adopted but the vendor is not cited in public documents. This group mixes undisclosed contracts, public infrastructures without a named supplier, and incomplete sources.</span></div>
     </div>
 
     <figure class="exhibit full">
@@ -791,8 +811,8 @@ footer{padding:28px 24px 80px;display:flex;justify-content:space-between;flex-wr
 
     <div class="stamp-note">
       <span class="stamp">System alert: privatization of force</span>
-      <p><strong>Critical observation:</strong> the data highlights that the technology is produced and distributed in large majority by the <mark>private sector</mark>.</p>
-      <p>This indicates a massive <strong>privatization of security</strong> across the United States. The public sector (the police) is becoming structurally dependent on the private sector to function. When public safety relies on proprietary algorithms and corporate hardware, the line between state authority and corporate profit becomes increasingly blurred.</p>
+      <p><strong>Critical observation:</strong> where a vendor is identified, it is in the vast majority of cases a <mark>private company</mark>: 52.03% of all records, against 2.10% public.</p>
+      <p>This points to a deep <strong>privatization of security</strong> across the United States. The public sector (the police) is becoming structurally dependent on the private sector to function. When public safety relies on proprietary algorithms and corporate hardware, the line between state authority and corporate profit becomes increasingly blurred.</p>
     </div>
   </div>
 </section>
@@ -808,15 +828,21 @@ footer{padding:28px 24px 80px;display:flex;justify-content:space-between;flex-wr
       <b>Reading the grid</b>
       <p>Each square is 1% of all technology records in the dataset.</p>
     </aside>
-    <p>The analysis of the Atlas of Surveillance dataset points to a clear conclusion: the State is losing direct control over its technological infrastructure.</p>
+    <p>The analysis of the Atlas of Surveillance dataset points to a clear pattern: where the supplier is known, police surveillance relies overwhelmingly on private technology.</p>
 
     <div class="units-wrap full">
       <div class="units" role="img" aria-label="100 squares: 52 private, 46 undeclared, 2 public"></div>
       <div class="unit-read">
-        <div class="p"><span class="big">52.03%</span><strong>Private corporations</strong> — profit-driven surveillance.</div>
-        <div class="h"><span class="big">45.87%</span><strong>Undeclared (the shadow)</strong> — vendor not named in public sources.</div>
-        <div class="s"><span class="big">2.10%</span><strong>State infrastructure</strong> — publicly owned tech.</div>
+        <div class="p"><span class="big">52.03%</span><strong>Private corporations</strong> — a private company is named as vendor.</div>
+        <div class="h"><span class="big">45.87%</span><strong>Undeclared (the shadow)</strong> — no vendor named: undisclosed contracts, state-run infrastructures and incomplete sources.</div>
+        <div class="s"><span class="big">2.10%</span><strong>State infrastructure</strong> — a public body is named as vendor.</div>
       </div>
+    </div>
+
+    <div class="howto">
+      <span class="small">How to read these numbers</span>
+      <p>Both the private and the public shares are <strong>lower bounds</strong>: part of the 45.87% without a declared vendor is supplied by companies, and part is run by the State itself (see the Fusion Center anomaly in Chapter 07).</p>
+      <p style="margin:0">The most robust figure is the ratio <strong>among identified vendors</strong>: 52.03 private against 2.10 public means that about <mark>96% of known suppliers are private</mark> and about 4% are public.</p>
     </div>
 
     <figure class="exhibit full">
@@ -828,11 +854,11 @@ footer{padding:28px 24px 80px;display:flex;justify-content:space-between;flex-wr
     <div class="argue full">
       <div>
         <h4>The nature of security: police as a client</h4>
-        <p class="sub">We have shifted from physical ownership (cars, paper files) to a digital rental model.</p>
+        <p class="sub">Police have always bought equipment from companies; what changes is the shift from owning tools (cars, paper files) to renting digital services.</p>
         <dl>
           <dt>Rented senses (SaaS)</dt><dd>The State rents its "eyes and ears". Companies like Axon don't just sell hardware; they manage the entire cloud evidence system.</dd>
-          <dt>Black box algorithms</dt><dd>Predictive policing logic (e.g. Geolitica) is corporate property, largely inaccessible to public scrutiny or democratic control.</dd>
-          <dt>De facto monopolies</dt><dd>A few actors control critical segments, such as Flock Safety (license plates) and SoundThinking (gunshot detection).</dd>
+          <dt>Black box algorithms</dt><dd>Predictive policing logic (e.g. Geolitica, formerly PredPol) is corporate property, largely inaccessible to public scrutiny or democratic control.</dd>
+          <dt>Concentration</dt><dd>A few actors recur in critical segments, such as Flock Safety (license plates) and SoundThinking (gunshot detection).</dd>
         </dl>
       </div>
       <div>
@@ -866,7 +892,7 @@ footer{padding:28px 24px 80px;display:flex;justify-content:space-between;flex-wr
 <section class="sheet dark" id="conclusion">
   <div class="verdict">
     <span class="small">Conclusion</span>
-    <p>The privatization of surveillance in the USA is not just a change in procurement; it is a change in <em>governance</em>. It is a fundamental historical change. Citizens' safety no longer depends on the state alone, but increasingly on private companies that provide security technologies.</p>
+    <p>The privatization of surveillance in the USA is not just a change in procurement; it is a change in <em>governance</em>. Police have always bought equipment from private companies; what is new is that they now rent data infrastructures, software and analytics that the companies own and control. Citizens' safety no longer depends on the state alone, but increasingly on private companies that provide security technologies.</p>
     <p class="pull">When the public sector (the police) becomes structurally dependent on the private sector (corporations) to function, <mark>public safety ceases to be a right and becomes a product.</mark></p>
     <p>Citizens risk becoming not only constituents to be protected, but also raw data to be harvested for profit.</p>
   </div>
@@ -886,10 +912,15 @@ footer{padding:28px 24px 80px;display:flex;justify-content:space-between;flex-wr
     <p class="lead">This digital research project is designed to map the surveillance infrastructure in the United States. The objective is not merely to quantify cameras or drones, but to unmask the transfer of power from the public sector to a private oligopoly.</p>
     <p>This study transforms thousands of technological acquisition records into a visual narrative that interrogates the future of state sovereignty and citizen rights.</p>
 
+    <div class="howto">
+      <span class="small">Verify it yourself</span>
+      <p style="margin:0">Every number in this investigation can be checked against the original source. The complete dataset is published by the EFF as an open CSV file: <a href="https://atlasofsurveillance.org/download.csv" target="_blank" rel="noopener"><strong>atlasofsurveillance.org/download.csv</strong></a>. Single records, with their source links, can be searched at <a href="https://www.atlasofsurveillance.org/search" target="_blank" rel="noopener">atlasofsurveillance.org/search</a>. Note that the EFF updates the dataset regularly: this analysis uses the version of December 4, 2025, so current figures may differ.</p>
+    </div>
+
     <ol class="custody">
-      <li data-n="1"><b>Collection</b><span>Raw dataset of the Atlas of Surveillance (EFF &amp; Reynolds School of Journalism), updated December 4, 2025.</span></li>
+      <li data-n="1"><b>Collection</b><span>Raw dataset of the Atlas of Surveillance (EFF &amp; Reynolds School of Journalism), downloaded in the version of December 4, 2025 from the <a href="https://www.atlasofsurveillance.org/data-library" target="_blank" rel="noopener">EFF Data Library</a>.</span></li>
       <li data-n="2"><b>Cleaning — OpenRefine</b><span>Rigorous cleaning and normalization of thousands of records from heterogeneous sources: a slow, meticulous process.</span></li>
-      <li data-n="3"><b>Classification</b><span><strong>Intrusiveness index:</strong> "standard" tools (e.g. bodycams) distinguished from "high-risk" technologies (e.g. facial recognition, predictive policing) to estimate how intrusive surveillance is in every state. <strong>Vendor mapping:</strong> contractual relationships analyzed to identify the manufacturers, categorizing actors into state infrastructure, private corporations and undeclared vendors.</span></li>
+      <li data-n="3"><b>Classification</b><span><strong>Intrusiveness index:</strong> "standard" tools (e.g. bodycams) distinguished from "high-risk" technologies (e.g. facial recognition, predictive policing) to estimate how intrusive surveillance is in every state. <strong>Vendor mapping:</strong> the vendor field of each record analyzed and normalized to identify the suppliers, categorizing actors into state infrastructure, private corporations and undeclared vendors.</span></li>
       <li data-n="4"><b>Visualization — Tableau Public</b><span>Interactive choropleth maps, pie charts and dynamic histograms.</span></li>
       <li data-n="5"><b>Publication — HTML5 &amp; CSS3</b><span>A custom interface designed to guide the reader through the investigation as a case file.</span></li>
     </ol>
@@ -906,10 +937,15 @@ footer{padding:28px 24px 80px;display:flex;justify-content:space-between;flex-wr
     <dl class="memo limits">
       <div><dt>Coverage</dt><dd><strong>Visibility bias</strong>The Atlas is built from news stories, public records and official documents. Agencies that publish more, or attract more media attention, are more visible than others.</dd></div>
       <div><dt>Scale</dt><dd><strong>Absolute counts</strong>Records are not normalized by population or by number of agencies, so large states rank higher almost by default.</dd></div>
-      <div><dt>Gaps</dt><dd><strong>Missing vendors</strong>An empty vendor field can signal secrecy, but also an incomplete source. The 45.87% is therefore an upper bound of the "shadow market", not a precise measure.</dd></div>
-      <div><dt>Choices</dt><dd><strong>Author's classification</strong>The split between "high risk" and "common use" tools, and the three vendor categories, are analytical choices of this study, not categories of the original dataset.</dd></div>
-      <div><dt>Time</dt><dd><strong>A snapshot</strong>The analysis reflects the dataset as of December 4, 2025; later adoptions are not included.</dd></div>
+      <div><dt>Collection</dt><dd><strong>Statewide imports</strong>Some states were covered by complete official surveys imported into the Atlas (e.g. New Jersey's 2020 body-camera survey), which inflates their counts compared with states documented only through news.</dd></div>
+      <div><dt>Unit</dt><dd><strong>Records, not contracts</strong>A record is one documented adoption. It carries no information on contract value, duration or whether the technology is still in use.</dd></div>
+      <div><dt>Gaps</dt><dd><strong>Missing vendors</strong>An empty vendor field can signal secrecy, but also an incomplete source or a state-run infrastructure. The 45.87% is therefore an upper bound of the "shadow market", not a precise measure.</dd></div>
+      <div><dt>Choices</dt><dd><strong>Author's classification</strong>The split between "high risk" and "common use" tools, and the three vendor categories, are analytical choices of this study, not categories of the original dataset. Other reasonable choices (e.g. ALPR as high risk) would change the Dystopian Index.</dd></div>
+      <div><dt>Time</dt><dd><strong>A snapshot</strong>The analysis reflects the dataset as of December 4, 2025 (the EFF has updated it since). A single snapshot shows a pattern, not a historical trend.</dd></div>
     </dl>
+
+    <h3>Next steps</h3>
+    <p>To turn the hypotheses of this study into tested findings: normalize records by population and number of agencies; compare them with crime and income data; reclassify Fusion Centers and RTCCs as public infrastructure and recompute the shares; and repeat the analysis on the latest version of the dataset.</p>
 
     <div class="colophon full">
       <div>
@@ -930,7 +966,7 @@ footer{padding:28px 24px 80px;display:flex;justify-content:space-between;flex-wr
 
 <footer class="small">
   <span>This project is for educational purposes only.</span>
-  <span>Big Brother is watching you · <a href="#top">Back to cover ↑</a></span>
+  <span>Data: <a href="https://atlasofsurveillance.org/download.csv" target="_blank" rel="noopener">EFF Atlas of Surveillance (CSV)</a> · <a href="#top">Back to cover ↑</a></span>
 </footer>
 
 <script>
